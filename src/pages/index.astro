@@ -1,0 +1,462 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+
+const phone = '+1 407 558-6109';
+const phoneHref = 'tel:+14075586109';
+const email = 'remodelingconcepts09@gmail.com';
+
+const services = [
+  { name: 'Bathroom Remodeling', blurb: 'Tile, plumbing, lighting and fixtures rebuilt for function and calm.', img: 'svc-bath' },
+  { name: 'Kitchen Remodeling', blurb: 'New cabinets, countertops and layouts that make the room actually work.', img: 'svc-kitchen' },
+  { name: 'Seamless Aluminum Gutters', blurb: 'Custom-run gutters for clean lines and reliable water management.', img: 'svc-gutter' },
+  { name: 'Screen & Porch Enclosures', blurb: 'Comfortable, protected outdoor rooms built for the Florida weather.', img: 'svc-screens' },
+  { name: 'Flooring', blurb: "Wood, tile and laminate installed with a craftsman's eye for detail.", img: 'svc-flooring' },
+  { name: 'Painting & Finishes', blurb: 'Interior and exterior finishes with a crisp, durable result.', img: 'svc-painting' },
+];
+
+const gallery = [
+  { img: 'gal-01', tag: 'Flooring' },
+  { img: 'gal-02', tag: 'Bathroom' },
+  { img: 'gal-03', tag: 'Kitchen' },
+  { img: 'gal-04', tag: 'Flooring' },
+  { img: 'gal-05', tag: 'Bathroom' },
+  { img: 'gal-06', tag: 'Kitchen' },
+  { img: 'gal-07', tag: 'Flooring' },
+  { img: 'gal-08', tag: 'Bathroom' },
+  { img: 'gal-09', tag: 'Kitchen' },
+  { img: 'gal-10', tag: 'Flooring' },
+  { img: 'gal-11', tag: 'Bathroom' },
+  { img: 'gal-12', tag: 'Kitchen' },
+];
+
+const steps = [
+  { t: 'Free consultation', d: 'We come out, listen to what you want, and leave you with a clear, detailed estimate — no obligation.' },
+  { t: 'Design & plan', d: 'We map the materials, layout and timeline together, so there are no surprises once we start.' },
+  { t: 'We build', d: 'Our own crew does the work — clean, on schedule, and finished to the last detail.' },
+  { t: 'The reveal', d: 'You walk into a space that feels brand new. That part never gets old for us.' },
+];
+
+const reasons = [
+  { t: 'Family-owned & accountable', d: 'You deal with the people who do the work — and stand behind it.' },
+  { t: 'Premium quality materials', d: 'We build with materials chosen to last, not to shave the invoice.' },
+  { t: 'Complimentary consultation', d: 'A free, no-obligation walkthrough and a clear, detailed estimate.' },
+  { t: 'On time, done right', d: 'We hit deadlines and hold the finish to the last detail.' },
+];
+
+const stats = [
+  { count: 456, suffix: '', label: 'Projects completed' },
+  { count: 115, suffix: '', label: 'Happy clients' },
+  { count: 6, suffix: '', label: 'Trades under one roof' },
+];
+
+const testimonials = [
+  { r: 5, q: 'Family owned. Quick installation. I would hire them again.', n: 'Pau M.', c: 'Clermont, FL', d: 'Dec 2022' },
+  { r: 5, q: 'Friendly and fast service. Great quality gutter work. Would hire them for any other project going forward. Thank you!', n: 'Cory G.', c: 'Gotha, FL', d: 'Jan 2022' },
+  { r: 5, q: 'Prompt and professional. Came out immediately to resolve an issue post-install and had it fixed within an hour. Highly recommended.', n: 'James F.', c: 'Clermont, FL', d: 'May 2021' },
+  { r: 5, q: 'The crew was efficient, professional and informative.', n: 'Debra W.', c: 'Orlando, FL', d: 'May 2021' },
+  { r: 5, q: 'They were on time and did a good job.', n: 'Ted B.', c: 'Orlando, FL', d: 'Jul 2021' },
+  { r: 5, q: 'I love their work, very detailed. Nice people to work with. I recommend them.', n: 'Isabel J.', c: 'Kissimmee, FL', d: 'Aug 2020' },
+];
+
+const navLinks = [
+  { href: '#work', label: 'Work' },
+  { href: '#services', label: 'Services' },
+  { href: '#reviews', label: 'Reviews' },
+  { href: '#contact', label: 'Contact' },
+];
+
+const year = new Date().getFullYear();
+const Stars = (n) => '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 5 - n);
+---
+
+<Base>
+  <!-- ===== NAV ===== -->
+  <header class="fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-3 sm:pt-4">
+    <nav class="flex w-full max-w-6xl items-center justify-between gap-4 rounded-full border border-white/10 bg-char-2/70 px-3 py-2 pl-4 backdrop-blur-md">
+      <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="JEG Remodeling Concepts — home">
+        <img src="img/logo-white.png" alt="" width="30" height="30" class="h-7 w-auto" />
+        <span class="font-display text-lg font-extrabold tracking-tight text-paper leading-none">JEG</span>
+      </a>
+      <ul class="hidden items-center gap-7 md:flex">
+        {navLinks.map((l) => (
+          <li><a href={l.href} class="inline-block py-1.5 font-display text-sm font-semibold text-paper/75 transition-colors duration-150 hover:text-paper">{l.label}</a></li>
+        ))}
+      </ul>
+      <a href={phoneHref} class="btn btn-amber mag !py-2.5 !px-4 text-sm">
+        <Icon name="phone" class="h-4 w-4" /><span class="hidden sm:inline">{phone}</span><span class="sm:hidden">Call now</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ===== HERO ===== -->
+    <section class="grain relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-char-2">
+      <picture>
+        <source srcset="img/hero-floor.webp" type="image/webp" />
+        <img src="img/hero-floor.jpg" alt="Finished interior with polished flooring by JEG Remodeling" class="img-cover kenburns absolute inset-0" fetchpriority="high" />
+      </picture>
+      <div class="scrim-warm"></div>
+      <div class="glow" aria-hidden="true" data-parallax="0.06" style="width:560px;height:560px;left:-10%;bottom:-12%"></div>
+
+      <div class="relative z-10 mx-auto w-full max-w-6xl px-5 pb-16 pt-32 sm:pb-24">
+        <p class="kicker text-paper/85 reveal in">Family-owned · Orlando, Florida</p>
+        <h1 class="mt-5 max-w-4xl text-hero text-paper reveal in" data-d="1">
+          Remodeling done right,<br /><span class="text-accent">room by room.</span>
+        </h1>
+        <p class="mt-6 max-w-xl text-lg text-paper/80 reveal in" data-d="2">
+          Bathrooms, kitchens, flooring, seamless gutters, enclosures and painting —
+          built with premium materials and finished like it's our own home.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-3 reveal in" data-d="3">
+          <a href={phoneHref} class="btn btn-amber mag text-base">Call {phone}</a>
+          <a href="#contact" class="btn btn-ghost mag text-base">Get a free quote</a>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-paper/70 reveal in" data-d="3">
+          <span class="font-semibold text-accent">★★★★★ 5.0</span>
+          <span class="h-3.5 w-px bg-white/20"></span>
+          <span>456 projects completed</span>
+          <span class="h-3.5 w-px bg-white/20"></span>
+          <span>Serving Greater Orlando</span>
+        </div>
+      </div>
+
+      <!-- floating stamp -->
+      <div class="absolute right-5 top-28 hidden rotate-6 sm:block md:right-10">
+        <div class="grid h-28 w-28 place-items-center rounded-full border border-accent/40 bg-char-2/50 text-center backdrop-blur-sm">
+          <div>
+            <div class="font-display text-2xl font-black leading-none text-accent">5.0</div>
+            <div class="mt-1 text-[0.6rem] uppercase tracking-widest text-paper/70">Rated by<br />Orlando</div>
+          </div>
+        </div>
+      </div>
+      <div class="scrollcue" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- ===== TRUST MARQUEE ===== -->
+    <div class="marquee overflow-hidden bg-accent py-3.5 text-accent-ink">
+      <div class="marquee-track">
+        {Array.from({ length: 2 }).map(() => (
+          <div class="flex shrink-0 items-center" aria-hidden="true">
+            {['Highly skilled professionals', 'Premium quality materials', 'Complimentary consultation', 'Licensed & insured', 'Serving Greater Orlando'].map((t) => (
+              <span class="flex items-center font-display text-sm font-bold uppercase tracking-wider">
+                <span class="mx-6">{t}</span><span class="opacity-40">◆</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- ===== BEFORE / AFTER ===== -->
+    <section class="relative mx-auto max-w-6xl px-5 py-20 sm:py-28">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-center lg:gap-16">
+        <div>
+          <p class="kicker text-ink-2 reveal">The difference</p>
+          <h2 class="mt-4 text-h2 text-ink reveal" data-d="1">Drag to see the transformation.</h2>
+          <p class="mt-5 max-w-md text-ink-2 reveal" data-d="2">
+            A blank living-room wall becomes a custom stone feature wall — floating shelves,
+            hidden LED lighting and a built-in linear fireplace. Drag the handle to see it change.
+          </p>
+          <p class="mt-6 script text-3xl text-accent-2 reveal" data-d="3">from blank wall to the room you picture</p>
+        </div>
+        <div class="ba grain aspect-[16/11] shadow-[0_30px_60px_-25px_rgba(0,0,0,0.5)] reveal" style="--pos:50%" data-d="1">
+          <picture>
+            <source srcset="img/ba-after.webp" type="image/webp" />
+            <img src="img/ba-after.jpg" alt="Finished floor and living space" />
+          </picture>
+          <div class="ba-top">
+            <picture>
+              <source srcset="img/ba-before.webp" type="image/webp" />
+              <img src="img/ba-before.jpg" alt="The same room during the build" />
+            </picture>
+          </div>
+          <span class="ba-tag" style="left:1rem">Before</span>
+          <span class="ba-tag" style="right:1rem">After</span>
+          <div class="ba-handle"><span class="ba-knob" aria-hidden="true">⇄</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="mx-auto max-w-6xl px-5 pb-20 sm:pb-28">
+      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div class="max-w-2xl">
+          <p class="kicker text-ink-2 reveal">What we do</p>
+          <h2 class="mt-4 text-h2 text-ink reveal" data-d="1">One crew for the whole home.</h2>
+        </div>
+        <p class="max-w-sm text-ink-2 reveal" data-d="2">
+          From a single bathroom to a full renovation, JEG handles the trades that
+          transform a space — so you coordinate one team, not six.
+        </p>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((s, i) => (
+          <a href="#contact" class="tile tilt group block aspect-[4/5] reveal" data-d={(i % 3) + 1}>
+            <picture>
+              <source srcset={`img/${s.img}.webp`} type="image/webp" />
+              <img src={`img/${s.img}.jpg`} alt={s.name} class="img-cover" loading="lazy" />
+            </picture>
+            <div class="scrim-b"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6">
+              <h3 class="text-h3 text-paper">{s.name}</h3>
+              <p class="mt-2 max-w-xs text-sm text-paper/80">{s.blurb}</p>
+              <span class="mt-4 inline-flex items-center gap-2 font-display text-sm font-semibold text-accent">
+                Get a quote
+                <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="grain relative bg-char text-paper">
+      <div class="glow" aria-hidden="true" data-parallax="0.05" style="width:480px;height:480px;right:-8%;top:-10%;opacity:0.5"></div>
+      <div class="relative z-10 mx-auto max-w-6xl px-5 py-20 sm:py-28">
+        <div class="max-w-2xl">
+          <p class="kicker text-accent reveal">How we work</p>
+          <h2 class="mt-4 text-h2 text-paper reveal" data-d="1">Four steps, zero surprises.</h2>
+        </div>
+        <div class="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((s, i) => (
+            <div class="reveal" data-d={(i % 3) + 1}>
+              <div class="font-display text-6xl font-black text-accent/25">{String(i + 1).padStart(2, '0')}</div>
+              <h3 class="mt-3 text-xl font-bold text-paper" style="font-family:var(--font-body)">{s.t}</h3>
+              <p class="mt-2 text-sm text-paper/65">{s.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY CAROUSEL ===== -->
+    <section id="work" class="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="kicker text-ink-2 reveal">Our work</p>
+          <h2 class="mt-4 text-h2 text-ink reveal" data-d="1">A gallery of recent projects.</h2>
+        </div>
+        <a href={phoneHref} class="btn btn-ink mag self-start text-sm md:self-auto reveal" data-d="2">Start yours</a>
+      </div>
+
+      <div
+        class="carousel relative mt-12 overflow-hidden rounded-lg shadow-[0_30px_60px_-25px_rgba(0,0,0,0.5)] reveal"
+        data-carousel
+        tabindex="0"
+        role="group"
+        aria-roledescription="carousel"
+        aria-label="JEG project gallery"
+      >
+        <div class="relative aspect-[16/11] sm:aspect-[16/9]">
+          {gallery.map((g, i) => (
+            <figure class={`car-slide absolute inset-0 ${i === 0 ? 'active' : ''}`} data-i={i} data-full={`img/${g.img}.jpg`} data-cap={g.tag} aria-hidden={i !== 0 ? 'true' : 'false'}>
+              <picture>
+                <source srcset={`img/${g.img}.webp`} type="image/webp" />
+                <img src={`img/${g.img}.jpg`} alt={`JEG project — ${g.tag}, Orlando FL`} class="img-cover" loading={i === 0 ? 'eager' : 'lazy'} />
+              </picture>
+              <div class="scrim-b"></div>
+              <figcaption class="absolute bottom-0 left-0 flex items-center gap-3 p-5 sm:p-7">
+                <span class="rounded-full bg-accent px-3 py-1 font-display text-xs font-bold uppercase tracking-wider text-accent-ink">{g.tag}</span>
+                <span class="font-display text-sm font-semibold text-paper/85">Orlando, FL</span>
+              </figcaption>
+            </figure>
+          ))}
+          <button class="car-arrow car-prev" type="button" aria-label="Previous project">‹</button>
+          <button class="car-arrow car-next" type="button" aria-label="Next project">›</button>
+          <button class="car-pause" type="button" aria-label="Pause gallery" aria-pressed="false"></button>
+          <div class="car-count absolute right-4 top-4 sm:right-5 sm:top-5">01 / {String(gallery.length).padStart(2, '0')}</div>
+          <div class="car-dots absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-2" style="z-index:3">
+            {gallery.map((_, i) => (
+              <button class={`car-dot ${i === 0 ? 'active' : ''}`} type="button" data-i={i} aria-label={`Go to project ${i + 1}`}></button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROMISE (warm band) ===== -->
+    <section class="bg-kraft">
+      <div class="mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-0 overflow-hidden lg:grid-cols-2">
+        <div class="tile relative min-h-[320px] lg:min-h-full">
+          <picture>
+            <source srcset="img/warm-floor.webp" type="image/webp" />
+            <img src="img/warm-floor.jpg" alt="Warm herringbone flooring installed by JEG" class="img-cover absolute inset-0" loading="lazy" />
+          </picture>
+        </div>
+        <div class="px-6 py-16 sm:px-12 sm:py-20">
+          <p class="kicker text-ink-2 reveal">Our promise</p>
+          <h2 class="mt-4 max-w-md text-h2 text-ink reveal" data-d="1">
+            We build every project like it's our own home.
+          </h2>
+          <p class="mt-5 max-w-md text-ink-2 reveal" data-d="2">
+            JEG Remodeling Concepts is family-owned. That's not a tagline — it's why we
+            show up on time, use materials that last, and treat your house with the
+            same care we'd want in ours.
+          </p>
+          <ul class="mt-10 grid gap-x-6 gap-y-5 sm:grid-cols-2">
+            {reasons.map((r, i) => (
+              <li class="flex gap-3 reveal" data-d={(i % 3) + 1}>
+                <span class="mt-2 h-2 w-2 shrink-0 rotate-45 bg-accent-2" aria-hidden="true"></span>
+                <div>
+                  <h3 class="text-base font-bold text-ink" style="font-family:var(--font-body)">{r.t}</h3>
+                  <p class="mt-0.5 text-sm text-ink-2">{r.d}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <p class="script mt-9 text-3xl text-accent-2 reveal" data-d="2">— the JEG family</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="grain relative bg-char-2 text-paper">
+      <div class="relative z-10 mx-auto grid max-w-6xl grid-cols-1 divide-y divide-white/10 px-5 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+        {stats.map((s, i) => (
+          <div class="flex flex-col items-center gap-1 py-14 text-center reveal" data-d={i + 1}>
+            <span class="font-display text-6xl font-black tracking-tight text-paper sm:text-7xl" data-count={s.count} data-suffix={s.suffix}>0</span>
+            <span class="text-sm uppercase tracking-widest text-paper/75">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ===== REVIEWS ===== -->
+    <section id="reviews" class="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+      <div class="max-w-2xl">
+        <p class="kicker text-ink-2 reveal">In their words</p>
+        <h2 class="mt-4 text-h2 text-ink reveal" data-d="1">Homeowners who'd hire us again.</h2>
+      </div>
+      <div class="mt-12 columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
+        {testimonials.map((t, i) => (
+          <figure class="break-inside-avoid rounded-md border border-rule bg-paper-2 p-6 reveal" data-d={(i % 3) + 1}>
+            <div class="text-accent-2" aria-label={`${t.r} out of 5 stars`}>{Stars(t.r)}</div>
+            <blockquote class="mt-3 text-ink">{t.q}</blockquote>
+            <figcaption class="mt-4 flex items-baseline justify-between gap-3 text-sm">
+              <span class="font-display font-bold text-ink">{t.n}</span>
+              <span class="text-ink-2">{t.c} · {t.d}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <!-- ===== QUOTE CTA ===== -->
+    <section id="contact" class="bg-accent text-accent-ink">
+      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-5 py-20 sm:py-28 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <p class="kicker !text-accent-ink/70 reveal">Free quote</p>
+          <h2 class="mt-4 text-h2 text-accent-ink reveal" data-d="1">Ready to transform your space?</h2>
+          <p class="mt-5 max-w-md text-accent-ink/80 reveal" data-d="2">
+            Tell us about your project and we'll come take a look — a free, no-obligation
+            estimate, usually within a day.
+          </p>
+          <div class="mt-9 flex flex-col gap-4 reveal" data-d="3">
+            <a href={phoneHref} class="flex items-center gap-3 font-display text-2xl font-extrabold text-accent-ink sm:text-3xl">
+              <Icon name="phone" class="h-6 w-6 shrink-0" />{phone}
+            </a>
+            <a href={`mailto:${email}`} class="flex items-center gap-3 text-accent-ink/80 hover:text-accent-ink">
+              <Icon name="mail" class="h-5 w-5 shrink-0" />{email}
+            </a>
+            <p class="text-accent-ink/70">Mon–Sat · 7:00 AM – 6:30 PM · Orlando, FL</p>
+          </div>
+        </div>
+
+        <form id="quote-form" class="rounded-lg bg-paper p-6 shadow-xl sm:p-8 reveal" data-d="2" novalidate>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="flex flex-col gap-1.5">
+              <span class="text-sm font-semibold text-ink">Name</span>
+              <input name="name" required class="rounded-md border border-rule bg-paper-2 field px-3.5 py-2.5 text-ink focus-visible:border-accent" placeholder="Your name" />
+            </label>
+            <label class="flex flex-col gap-1.5">
+              <span class="text-sm font-semibold text-ink">Phone</span>
+              <input name="phone" type="tel" required class="rounded-md border border-rule bg-paper-2 field px-3.5 py-2.5 text-ink focus-visible:border-accent" placeholder="(407) 000-0000" />
+            </label>
+          </div>
+          <label class="mt-4 flex flex-col gap-1.5">
+            <span class="text-sm font-semibold text-ink">Service</span>
+            <select name="service" class="rounded-md border border-rule bg-paper-2 field px-3.5 py-2.5 text-ink focus-visible:border-accent">
+              {services.map((s) => <option>{s.name}</option>)}
+              <option>Other / not sure yet</option>
+            </select>
+          </label>
+          <label class="mt-4 flex flex-col gap-1.5">
+            <span class="text-sm font-semibold text-ink">Project details</span>
+            <textarea name="message" rows="3" class="resize-none rounded-md border border-rule bg-paper-2 field px-3.5 py-2.5 text-ink focus-visible:border-accent" placeholder="Tell us what you're planning…"></textarea>
+          </label>
+          <button type="submit" class="btn btn-ink mt-5 w-full justify-center text-base">Request my free quote</button>
+          <p id="quote-ok" hidden class="mt-3 text-center text-sm text-ink-2">Opening your email app… or just call us at {phone}.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="grain relative overflow-hidden bg-char-2 text-paper">
+      <div class="pointer-events-none absolute -right-10 -top-24 select-none font-display text-[18rem] font-black leading-none text-white/[0.03]" aria-hidden="true">JEG</div>
+      <div class="relative z-10 mx-auto max-w-6xl px-5 py-20 sm:py-24">
+        <h2 class="max-w-4xl text-mega text-paper reveal">
+          Let's build something<br /><span class="text-accent">that lasts.</span>
+        </h2>
+        <div class="mt-12 flex flex-wrap gap-3 reveal" data-d="1">
+          <a href={phoneHref} class="btn btn-amber mag text-base">Call {phone}</a>
+          <a href={`mailto:${email}`} class="btn btn-ghost mag text-base">Email us</a>
+        </div>
+
+        <hr class="rule-dark my-14" />
+
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <div class="col-span-2 sm:col-span-1">
+            <a href="#top" class="flex items-center gap-2.5">
+              <img src="img/logo-white.png" alt="" width="34" height="34" class="h-8 w-auto" />
+              <span class="font-display text-xl font-extrabold text-paper">JEG</span>
+            </a>
+            <p class="mt-4 max-w-xs text-sm text-paper/72">Remodeling Concepts Corp. — family-owned remodeling and renovation across Greater Orlando, Florida.</p>
+          </div>
+          <div>
+            <h3 class="font-display text-sm font-bold uppercase tracking-wider text-paper/70" style="line-height:1.2">Services</h3>
+            <ul class="mt-4 flex flex-col gap-2 text-sm text-paper/75">
+              {services.map((s) => <li><a href="#services" class="inline-block py-1 hover:text-accent">{s.name}</a></li>)}
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-display text-sm font-bold uppercase tracking-wider text-paper/70" style="line-height:1.2">Company</h3>
+            <ul class="mt-4 flex flex-col gap-2 text-sm text-paper/75">
+              <li><a href="#work" class="inline-block py-1 hover:text-accent">Our work</a></li>
+              <li><a href="#reviews" class="inline-block py-1 hover:text-accent">Reviews</a></li>
+              <li><a href="#contact" class="inline-block py-1 hover:text-accent">Free quote</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-display text-sm font-bold uppercase tracking-wider text-paper/70" style="line-height:1.2">Contact</h3>
+            <ul class="mt-4 flex flex-col gap-2 text-sm text-paper/75">
+              <li><a href={phoneHref} class="inline-block py-1 hover:text-accent">{phone}</a></li>
+              <li><a href={`mailto:${email}`} class="break-all hover:text-accent">{email}</a></li>
+              <li>Orlando, FL, USA</li>
+              <li>Mon–Sat · 7:00 AM – 6:30 PM</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="rule-dark my-10" />
+        <p class="text-sm text-paper/65">© {year} JEG Remodeling Concepts Corp. All rights reserved.</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lb grain" id="lightbox" role="dialog" aria-modal="true" aria-label="Project photo">
+    <button class="lb-btn lb-close" id="lb-close" type="button" aria-label="Close">✕</button>
+    <button class="lb-btn lb-nav lb-prev" id="lb-prev" type="button" aria-label="Previous photo">‹</button>
+    <img id="lb-img" src="" alt="JEG project photo" />
+    <button class="lb-btn lb-nav lb-next" id="lb-next" type="button" aria-label="Next photo">›</button>
+    <p class="lb-cap" id="lb-cap"></p>
+  </div>
+
+  <!-- Mobile call FAB -->
+  <a href={phoneHref} class="fab" id="callfab" aria-label={`Call JEG at ${phone}`}>
+    <Icon name="phone" class="h-4 w-4" /> Call now
+  </a>
+</Base>
