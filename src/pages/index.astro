@@ -162,13 +162,13 @@ const Stars = (n) => '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 
         </div>
         <div class="ba grain aspect-[16/11] shadow-[0_30px_60px_-25px_rgba(0,0,0,0.5)] reveal" style="--pos:50%" data-d="1">
           <picture>
-            <source srcset="img/ba-after.webp" type="image/webp" />
-            <img src="img/ba-after.jpg" alt="Finished floor and living space" />
+            <source srcset="img/ba-after.webp?v=2" type="image/webp" />
+            <img src="img/ba-after.jpg?v=2" alt="Finished living room with a custom stone feature wall and linear fireplace" />
           </picture>
           <div class="ba-top">
             <picture>
-              <source srcset="img/ba-before.webp" type="image/webp" />
-              <img src="img/ba-before.jpg" alt="The same room during the build" />
+              <source srcset="img/ba-before.webp?v=2" type="image/webp" />
+              <img src="img/ba-before.jpg?v=2" alt="The same living room before the feature wall was built" />
             </picture>
           </div>
           <span class="ba-tag" style="left:1rem">Before</span>
@@ -195,8 +195,8 @@ const Stars = (n) => '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 
         {services.map((s, i) => (
           <a href="#contact" class="tile tilt group block aspect-[4/5] reveal" data-d={(i % 3) + 1}>
             <picture>
-              <source srcset={`img/${s.img}.webp`} type="image/webp" />
-              <img src={`img/${s.img}.jpg`} alt={s.name} class="img-cover" loading="lazy" />
+              <source srcset={`img/${s.img}.webp?v=2`} type="image/webp" />
+              <img src={`img/${s.img}.jpg?v=2`} alt={s.name} class="img-cover" loading="lazy" />
             </picture>
             <div class="scrim-b"></div>
             <div class="absolute inset-0 flex flex-col justify-end p-6">
@@ -252,10 +252,10 @@ const Stars = (n) => '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 
       >
         <div class="relative aspect-[16/11] sm:aspect-[16/9]">
           {gallery.map((g, i) => (
-            <figure class={`car-slide absolute inset-0 ${i === 0 ? 'active' : ''}`} data-i={i} data-full={`img/${g.img}.jpg`} data-cap={g.tag} aria-hidden={i !== 0 ? 'true' : 'false'}>
+            <figure class={`car-slide absolute inset-0 ${i === 0 ? 'active' : ''}`} data-i={i} data-full={`img/${g.img}.jpg?v=2`} data-cap={g.tag} aria-hidden={i !== 0 ? 'true' : 'false'}>
               <picture>
-                <source srcset={`img/${g.img}.webp`} type="image/webp" />
-                <img src={`img/${g.img}.jpg`} alt={`JEG project — ${g.tag}, Orlando FL`} class="img-cover" loading={i === 0 ? 'eager' : 'lazy'} />
+                <source srcset={`img/${g.img}.webp?v=2`} type="image/webp" />
+                <img src={`img/${g.img}.jpg?v=2`} alt={`JEG project — ${g.tag}, Orlando FL`} class="img-cover" loading={i === 0 ? 'eager' : 'lazy'} />
               </picture>
               <div class="scrim-b"></div>
               <figcaption class="absolute bottom-0 left-0 flex items-center gap-3 p-5 sm:p-7">
